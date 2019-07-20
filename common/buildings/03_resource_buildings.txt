@@ -203,8 +203,9 @@ building_food_processing_facility = {
 		}
 	}
 		
+	#SE: Buffed this from 0.15 to 0.20 to compensate for free resource elimination
 	planet_modifier = {
-		planet_farmers_food_produces_mult = 0.15
+		planet_farmers_food_produces_mult = 0.20
 	}
 
 	triggered_planet_modifier = {
@@ -286,8 +287,9 @@ building_food_processing_center = {
 	can_build = no
 	category = resource
 		
+	#SE: Buffed this from 0.25 to 0.40 to compensate for free resource elimination
 	planet_modifier = {
-		planet_farmers_food_produces_mult = 0.25
+		planet_farmers_food_produces_mult = 0.40
 	}
 	
 	allow = {
@@ -401,8 +403,9 @@ building_mineral_purification_plant = {
 		}
 	}
 		
+	#SE: Buffed this from 0.15 to 0.20 to compensate for free resource elimination
 	planet_modifier = {
-		planet_miners_minerals_produces_mult = 0.15
+		planet_miners_minerals_produces_mult = 0.20
 	}
 
 	triggered_planet_modifier = {
@@ -535,8 +538,9 @@ building_mineral_purification_hub = {
 		has_upgraded_capital = yes
 	}
 		
+	#SE: Buffed this from 0.25 to 0.40 to compensate for free resource elimination
 	planet_modifier = {
-		planet_miners_minerals_produces_mult = 0.25
+		planet_miners_minerals_produces_mult = 0.40
 	}
 
 	triggered_planet_modifier = {
@@ -671,8 +675,9 @@ building_energy_grid = {
 		}
 	}
 	
+	#SE: Buffed this from 0.15 to 0.20 to compensate for free resource elimination
 	planet_modifier = {
-		planet_technician_energy_produces_mult = 0.15
+		planet_technician_energy_produces_mult = 0.20
 	}
 
 	triggered_planet_modifier = {
@@ -791,8 +796,9 @@ building_energy_nexus = {
 		has_upgraded_capital = yes
 	}
 	
+	#SE: Buffed this from 0.25 to 0.40 to compensate for free resource elimination
 	planet_modifier = {
-		planet_technician_energy_produces_mult = 0.25
+		planet_technician_energy_produces_mult = 0.40
 	}
 
 	triggered_planet_modifier = {

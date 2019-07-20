@@ -696,9 +696,15 @@ wg_force_ideology = {
 	war_exhaustion = 0.75
 
 	potential = {
-		has_policy_flag = liberation_wars
+		OR = {
+			has_policy_flag = unrestricted_wars
+			has_policy_flag = liberation_wars
+		}
 		has_total_war_cb = no
 		from = { is_country_type = default }
+		NOT = {
+			has_authority = auth_corporate
+		}
 	}
 	possible = {
 		always = yes
