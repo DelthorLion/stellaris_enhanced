@@ -78,7 +78,6 @@ se_wg_force_ideology_corporate = {
 			custom_tooltip = wg_force_ideology_accept_3
 		}
 		hidden_effect = {		
-			from = { copy_ethos = root }
 			from = { add_modifier = { modifier = recently_liberated days = 7300 } }		
 			add_opinion_modifier = { modifier = opinion_we_liberated who = from }	
 			from = { add_opinion_modifier = { modifier = opinion_liberated_us who = root } }
@@ -121,8 +120,269 @@ se_wg_force_ideology_corporate = {
 			from = {
 				leave_alliance = { override_requirements = yes }
 			}
-            change_government = {
-                authority = auth_oligarchic
+
+            # Change losing empire to an oligarchy unless the winning empire can't
+            #   use oligarchy, in which case, change it to an authority matching
+            #   the empire's ethos
+            if = {
+                limit = {
+                    NOR = {
+                        root = { has_ethic = ethic_fanatic_authoritarian }
+                        root = { has_ethic = ethic_fanatic_egalitarian }
+                    }
+                }
+                from = {
+                    change_government = {
+                        authority = auth_oligarchic
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_authoritarian }
+                }
+                from = {
+                    change_government = {
+                        authority = auth_dictatorial
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_egalitarian }
+                }
+                from = {
+                    change_government = {
+                        authority = auth_democratic
+                    }
+                }
+            }
+
+            # Remove existing ethos
+            from = {
+                limit = {
+                    has_ethic = ethic_fanatic_authoritarian
+                }
+                country_remove_ethic = ethic_fanatic_authoritarian
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_authoritarian
+                }
+                country_remove_ethic = ethic_authoritarian
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_fanatic_egalitarian
+                }
+                country_remove_ethic = ethic_fanatic_egalitarian
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_egalitarian
+                }
+                country_remove_ethic = ethic_egalitarian
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_fanatic_xenophobe
+                }
+                country_remove_ethic = ethic_fanatic_xenophobe
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_xenophobe
+                }
+                country_remove_ethic = ethic_xenophobe
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_fanatic_xenophile
+                }
+                country_remove_ethic = ethic_fanatic_xenophile
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_xenophile
+                }
+                country_remove_ethic = ethic_xenophile
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_fanatic_militarist
+                }
+                country_remove_ethic = ethic_fanatic_militarist
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_militarist
+                }
+                country_remove_ethic = ethic_militarist
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_fanatic_pacifist
+                }
+                country_remove_ethic = ethic_fanatic_pacifist
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_pacifist
+                }
+                country_remove_ethic = ethic_pacifist
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_fanatic_spiritualist
+                }
+                country_remove_ethic = ethic_fanatic_spiritualist
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_spiritualist
+                }
+                country_remove_ethic = ethic_spiritualist
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_fanatic_materialist
+                }
+                country_remove_ethic = ethic_fanatic_materialist
+            }
+            from = {
+                limit = {
+                    has_ethic = ethic_materialist
+                }
+                country_remove_ethic = ethic_materialist
+            }
+            # Add ethos matching the winning empire
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_authoritarian }
+                }
+                from = {
+                    country_add_ethic = ethic_fanatic_authoritarian
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_authoritarian }
+                }
+                from = {
+                    country_add_ethic = ethic_authoritarian
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_egalitarian }
+                }
+                from = {
+                    country_add_ethic = ethic_fanatic_egalitarian
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_egalitarian }
+                }
+                from = {
+                    country_add_ethic = ethic_egalitarian
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_xenophobe }
+                }
+                from = {
+                    country_add_ethic = ethic_fanatic_xenophobe
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_xenophobe }
+                }
+                from = {
+                    country_add_ethic = ethic_xenophobe
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_xenophile }
+                }
+                from = {
+                    country_add_ethic = ethic_fanatic_xenophile
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_xenophile }
+                }
+                from = {
+                    country_add_ethic = ethic_xenophile
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_militarist }
+                }
+                from = {
+                    country_add_ethic = ethic_fanatic_militarist
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_militarist }
+                }
+                from = {
+                    country_add_ethic = ethic_militarist
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_pacifist }
+                }
+                from = {
+                    country_add_ethic = ethic_fanatic_pacifist
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_pacifist }
+                }
+                from = {
+                    country_add_ethic = ethic_pacifist
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_spiritualist }
+                }
+                from = {
+                    country_add_ethic = ethic_fanatic_spiritualist
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_spiritualist }
+                }
+                from = {
+                    country_add_ethic = ethic_spiritualist
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_fanatic_materialist }
+                }
+                from = {
+                    country_add_ethic = ethic_fanatic_materialist
+                }
+            }
+            if = {
+                limit = {
+                    root = { has_ethic = ethic_materialist }
+                }
+                from = {
+                    country_add_ethic = ethic_materialist
+                }
             }
 		}
 	}
