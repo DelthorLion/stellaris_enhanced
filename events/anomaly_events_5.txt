@@ -2039,6 +2039,8 @@ ship_event = {
 		}
 	}
 }
+#SE: Adjust rewards in this whole event because tech_mining_1/2 are no longer
+#    accessible to players
 #Special Project Succeded
 ship_event = {
 	id = anomaly.4066
@@ -2048,7 +2050,7 @@ ship_event = {
 			hidden:owner = {
 				switch = {
 					trigger = has_technology
-					tech_mining_2 = { text = anomaly.4066.res.desc }
+					tech_mineral_purification_1 = { text = anomaly.4066.res.desc }
 					default = { text = anomaly.4066.upg.desc }
 				}
 			}
@@ -2065,54 +2067,25 @@ ship_event = {
 		trigger = {
 			owner = {
 				NOT = {
-					has_technology = tech_mining_1
+					has_technology = tech_mineral_purification_1
 				}
 			}
 		}
 		owner = {
 			if = {
 				limit = {
-					has_tech_option = tech_mining_1
+					has_tech_option = tech_mineral_purification_1
 				}
 				add_tech_progress = {
-					tech = tech_mining_1
+					tech = tech_mineral_purification_1
 					progress = 0.5
 				}
 			}
 			else = {
-				add_research_option = tech_mining_1
+				add_research_option = tech_mineral_purification_1
 				add_tech_progress = {
-					tech = tech_mining_1
+					tech = tech_mineral_purification_1
 					progress = 0.25
-				}
-			}
-		}
-	}
-	option = {
-		name = EXCELLENT
-		trigger = {
-			owner = {
-				has_technology = tech_mining_1
-				NOT = {
-					has_technology = tech_mining_2
-				}
-			}
-		}
-		owner = {
-			if = {
-				limit = {
-					has_tech_option = tech_mining_2
-				}
-				add_tech_progress = {
-					tech = tech_mining_2
-					progress = 0.4
-				}
-			}
-			else = {
-				add_research_option = tech_mining_2
-				add_tech_progress = {
-					tech = tech_mining_2
-					progress = 0.2
 				}
 			}
 		}
@@ -2122,7 +2095,7 @@ ship_event = {
 		custom_tooltip = "anomaly.4066.b.tooltip"
 		trigger = {
 			owner = {
-				has_technology = tech_mining_2
+				has_technology = tech_mineral_purification_1
 			}
 		}
 		from = {

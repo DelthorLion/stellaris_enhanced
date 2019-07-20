@@ -5,7 +5,9 @@ tech_repeatable_improved_tile_food_output = {
 	tier = @repeatableTechTier
 	category = { biology }
 	levels = -1
-	prerequisites = { "tech_gene_crops" }
+	#SE: Adjust prerequisite because tech_gene_crops is no longer
+	#    accessible to players
+	prerequisites = { "tech_food_processing_2" }
 	weight = @repeatableTechWeight
 	
 	weight_modifier = {

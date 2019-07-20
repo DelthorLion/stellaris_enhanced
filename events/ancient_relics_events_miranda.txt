@@ -21,7 +21,9 @@ country_event = {
     trigger = {
     	has_ancrel = yes
     	is_ai = no
-    	last_increased_tech = tech_mining_3
+	#SE: Adjust reward because tech_mining_3 is no longer
+	#    accessible to players
+    	last_increased_tech = tech_mineral_purification_2
     	any_owned_planet = {
    			num_districts = { type = district_mining value > 1 }
 			NOT = { exists = archaeological_site }

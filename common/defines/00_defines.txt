@@ -632,18 +632,20 @@
 
 		BASE_SURVEY_TIME 		= 20.0				# Base Time In Days for surveying a planet
 
+		#SE: Leader adjustments include increasing the level cap to 15, and adjusting
+		#    the experience requirements to compensate.
 		LEADER_POOL_SIZE		= 3				# Each leader pool will consist of this many leaders
 		LEADER_POOL_LEAD_TIME	= 10				# Years leaders will remain in the leader pool until replaced
 		LEADER_BASE_SKILL_CAP	= 5
-		LEADER_MAX_SKILL_CAP	= 10
+		LEADER_MAX_SKILL_CAP	= 15
 		LEADER_SKILL_MIN		= 1
 		LEADER_AGE_HEIR_MIN		= 18				# Min age of generated heirs in dynastic governments
 		LEADER_AGE_HEIR_MAX		= 26				# Max age of generated heirs in dynastic governments
 		LEADER_AGE_MIN			= 28				# Min age of generated leaders
 		LEADER_AGE_MAX			= 50				# Max age of generated leaders
 		LEADER_SKILL_LEVEL_START	= 1			# Skill Level Leaders start with. XP needed { 200 475 825 1250 }
-		LEADER_EXPERIENCE_REQUIREMENT_BASE_VALUE					= 125 # Base value when calculating required experience for next skill level
-		LEADER_EXPERIENCE_REQUIREMENT_SCALE_VALUE					= 75 # Scale factor when calculating required experience for next skill level
+		LEADER_EXPERIENCE_REQUIREMENT_BASE_VALUE					= 170 # Base value when calculating required experience for next skill level
+		LEADER_EXPERIENCE_REQUIREMENT_SCALE_VALUE					= 30 # Scale factor when calculating required experience for next skill level
 		
 		LEADER_RULER_MONARCH_EXPERIENCE								= 5.0
 		LEADER_RULER_HEIR_EXPERIENCE								= 1.0
@@ -850,7 +852,8 @@
 		PLANET_COMBAT_WIDTH_BASE				= 5 # Maximum number of troops that can fight at the same time
 		PLANET_COMBAT_WIDTH_FROM_SIZE 			= 0.2 # Extra combat width per tile
 		
-		GENERAL_DEATH_CHANCE					= 0.05		# Chance that general dies when an army under command is destroyed (scaled to number of armies)
+		#SE: Massively cut down the chance for general to die (0.05 -> 0.01)
+		GENERAL_DEATH_CHANCE					= 0.01		# Chance that general dies when an army under command is destroyed (scaled to number of armies)
 
 		ANOMALY_SPAWN_CHANCE					= 0.050 # Percent chance that a planet gets a discovery when surveyed
 		ANOMALY_SPAWN_CHANCE_INCREMENT			= 0.005 # Percentage increase towards next chance when failing
@@ -1158,10 +1161,13 @@
 		
 		BASE_POP_ASSEMBLY					= 0		# Base assembly rate of pops
 		REQUIRED_POP_ASSEMBLY				= 100	# Required assembly to add a pop
-		
+
+		#SE: Emmigration can now push all pops out to emmigration, and the immigration cap
+		#    has been incrased. This is to allow for players to automate "send all pops to
+		#    other planets" though with some kind of cost, depending on the empire.
 		MAX_EMIGRATION_PUSH					= 100
-		MAX_GROWTH_FROM_IMMIGRATION			= 5	
-		MAX_GROWTH_PENALTY_FROM_EMIGRATION	= 0.95	# Fraction of base monthly growth
+		MAX_GROWTH_FROM_IMMIGRATION			= 10
+		MAX_GROWTH_PENALTY_FROM_EMIGRATION	= 1	# Fraction of base monthly growth
 		
 		DEFAULT_CHANGE_JOB_THRESHOLD		= 1.1		# A job must have this much higher weight in order for a pop to switch to it from their current job
 		

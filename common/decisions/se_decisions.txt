@@ -1,0 +1,68 @@
+# Total Emmigration
+se_decision_total_emigration = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		NOT = {
+            OR = {
+                has_modifier = se_total_emmigration_free
+                has_modifier = se_total_emmigration_with_maintenance
+            }
+        }
+	}
+	
+	effect = {
+		add_modifier = { modifier = "se_total_emmigration_with_maintenance" days = -1 }
+		IF = {
+			limit = {
+				has_modifier = planet_food_boost
+			}
+			remove_modifier = planet_food_boost
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+		#SE: Keep the below commented out until the full set of population controls and
+        #    emmigration push get resolved
+		#weight = 5
+		#modifier = { # don't enable if you have free housing and no city districts left to build
+		#	factor = 0
+		#	OR = {
+		#		free_housing > 0
+		#		num_free_districts = {
+		#			type = any
+		#			value > 0
+		#		}
+		#		has_building_construction = yes #Added since they're probably building housing
+		#	}
+		#}
+	}
+}
+
+se_decision_end_total_emigration = {
+    owned_planets_only = yes
+    sound = event_administrative_work
+    icon = decision_politics
+
+    resources = {
+        category = decisions
+    }
+
+    potential = {
+        has_modifier = se_total_emmigration_with_maintenance
+    }
+
+    effect = {
+        remove_modifier = "se_total_emmigration_with_maintenance"
+    }
+}

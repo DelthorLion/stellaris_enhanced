@@ -44,6 +44,19 @@ country_event = {
 					has_swapped_tradition = tr_synchronicity_self_preservation
 					factor = 0.5
 				}
+				#SE: Added a technology that reduces the chance of failures
+				modifier = {
+					has_technology = se_tech_isolated_consciousness
+					factor = 0.75
+				}
+				modifier = {
+					AND = {
+						has_swapped_tradition = tr_synchronicity_self_preservation
+						has_technology = se_tech_isolated_consciousness
+					}
+					factor = 0.25
+				}
+
 				if = { # surveying scientist
 					limit = {
 						any_owned_leader = {
@@ -88,6 +101,19 @@ country_event = {
 					has_swapped_tradition = tr_synchronicity_self_preservation
 					factor = 0.5
 				}
+				#SE: Added a technology that reduces the chance of failures
+				modifier = {
+					has_technology = se_tech_isolated_consciousness
+					factor = 0.75
+				}
+				modifier = {
+					AND = {
+						has_swapped_tradition = tr_synchronicity_self_preservation
+						has_technology = se_tech_isolated_consciousness
+					}
+					factor = 0.25
+				}
+
 				if = { # engineering scientist
 					limit = {
 						any_owned_leader = {
@@ -132,6 +158,26 @@ country_event = {
 					has_swapped_tradition = tr_synchronicity_self_preservation
 					factor = 0.5
 				}
+				#SE: Added a technology that reduces the chance of failures
+				modifier = {
+					has_technology = se_tech_isolated_consciousness
+					factor = 0.75
+				}
+				modifier = {
+					AND = {
+						has_swapped_tradition = tr_synchronicity_self_preservation
+						has_technology = se_tech_isolated_consciousness
+					}
+					factor = 0.25
+				}
+
+				modifier = {
+					AND = {
+						has_swapped_tradition = tr_synchronicity_self_preservation
+						has_technology = se_tech_isolated_consciousness
+					}
+				}
+
 				if = { # society scientist
 					limit = {
 						any_owned_leader = {
@@ -176,6 +222,19 @@ country_event = {
 					has_swapped_tradition = tr_synchronicity_self_preservation
 					factor = 0.5
 				}
+				#SE: Added a technology that reduces the chance of failures
+				modifier = {
+					has_technology = se_tech_isolated_consciousness
+					factor = 0.75
+				}
+				modifier = {
+					AND = {
+						has_swapped_tradition = tr_synchronicity_self_preservation
+						has_technology = se_tech_isolated_consciousness
+					}
+					factor = 0.25
+				}
+				
 				if = { # society scientist
 					limit = {
 						any_owned_leader = {
@@ -216,10 +275,19 @@ country_event = {
 				}
 			}
 			2 = {
-				modifier = { # 50% chance if self preservation in effect
-					has_swapped_tradition = tr_synchronicity_self_preservation
-					factor = 0.5
+				#SE: Added a technology that reduces the chance of failures
+				modifier = {
+					has_technology = se_tech_isolated_consciousness
+					factor = 0.75
 				}
+				modifier = {
+					AND = {
+						has_swapped_tradition = tr_synchronicity_self_preservation
+						has_technology = se_tech_isolated_consciousness
+					}
+					factor = 0.25
+				}
+				
 				if = { # commanding admiral
 					limit = {
 						any_owned_leader = {
@@ -260,10 +328,19 @@ country_event = {
 				}
 			}
 			2 = {
-				modifier = { # 50% chance if self preservation in effect
-					has_swapped_tradition = tr_synchronicity_self_preservation
-					factor = 0.5
+				#SE: Added a technology that reduces the chance of failures
+				modifier = {
+					has_technology = se_tech_isolated_consciousness
+					factor = 0.75
 				}
+				modifier = {
+					AND = {
+						has_swapped_tradition = tr_synchronicity_self_preservation
+						has_technology = se_tech_isolated_consciousness
+					}
+					factor = 0.25
+				}
+				
 				if = { # planet governor
 					limit = {
 						any_owned_leader = {

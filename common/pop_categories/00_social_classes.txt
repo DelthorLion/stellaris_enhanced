@@ -68,7 +68,8 @@ ruler = {
 	}
 
 	resettlement_cost = {
-		energy = 200
+		#SE: Changed from 200 energy to 40 influence
+		influence = 40
 	}
 	
 	triggered_planet_modifier = {
@@ -255,7 +256,8 @@ specialist = {
 	}
 
 	resettlement_cost = {
-		energy = 150
+		#SE: Changed from 150 energy to 30 influence
+		influence = 30
 	}
 	
 	triggered_planet_modifier = {
@@ -540,7 +542,8 @@ worker = {
 	}
 
 	resettlement_cost = {
-		energy = 100
+		#SE: Changed from 100 energy to 20 influence
+		influence = 20
 	}
 
 	resources = {

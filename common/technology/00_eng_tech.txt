@@ -2012,16 +2012,60 @@ tech_powered_exoskeletons = {
 	}
 }
 
+#SE: Remove the modifier to remove free resource gain, but keep
+#    this tech intact to gain access to nebula refineries. Cut
+#    the cost in half, though to compensate for lost value.
 tech_space_mining_1 = {
-	cost = @tier1cost1
+	cost = @tier1cost1half
 	area = engineering
 	tier = 1
 	category = { industry }	
 	prerequisites = { "tech_space_construction" }
 	weight = @tier1weight1
 	
+	#modifier = {
+	#	station_gatherers_produces_mult = 0.10
+	#}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}			
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}
+	}
+}
+
+#SE: Added so that AI can still access this 10% increase to minerals.
+#    Cut the cost in half, so that the total engineering required is
+#    consistent with before the mod.
+se_tech_space_mining_1_for_ai = {
+	cost = @tier1cost1half
+	area = engineering
+	tier = 1
+	category = { industry }	
+	prerequisites = { "tech_space_mining_1" }
+	weight = @tier1weight1
+	
 	modifier = {
 		station_gatherers_produces_mult = 0.10
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -2056,6 +2100,11 @@ tech_space_mining_2 = {
 	modifier = {
 		station_gatherers_produces_mult = 0.10
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -2088,6 +2137,11 @@ tech_space_mining_3 = {
 	
 	modifier = {
 		station_gatherers_produces_mult = 0.10
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -2122,6 +2176,11 @@ tech_space_mining_4 = {
 	modifier = {
 		station_gatherers_produces_mult = 0.10
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -2154,6 +2213,11 @@ tech_space_mining_5 = {
 	
 	modifier = {
 		station_gatherers_produces_mult = 0.10
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -2189,6 +2253,11 @@ tech_mining_1 = {
 	modifier = {
 		planet_miners_minerals_produces_mult = 0.20
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -2222,6 +2291,11 @@ tech_mining_2 = {
 	
 	modifier = {
 		planet_miners_minerals_produces_mult = 0.20
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -2257,6 +2331,11 @@ tech_mining_3 = {
 	modifier = {
 		planet_miners_minerals_produces_mult = 0.20
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -2285,7 +2364,9 @@ tech_mineral_purification_1 = {
 	area = engineering
 	tier = 1
 	category = { industry }	
-	prerequisites = { "tech_mining_1" }
+	#SE: Remove prerequisite because tech_mining_1 is no longer
+	#    accessible to players
+	#prerequisites = { "tech_mining_1" }
 	weight = @tier1weight3
 	
 	weight_modifier = {
@@ -2519,6 +2600,11 @@ tech_engineering_1 = {
 	modifier = {
 		planet_researchers_engineering_research_produces_mult = 0.2
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -2574,6 +2660,11 @@ tech_engineering_2 = {
 	modifier = {
 		planet_researchers_engineering_research_produces_mult = 0.2
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -2624,6 +2715,11 @@ tech_engineering_3 = {
 		
 	modifier = {
 		planet_researchers_engineering_research_produces_mult = 0.2
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -3118,7 +3214,9 @@ tech_assembly_pattern  = {
 	area = engineering
 	tier = 1
 	category = { industry }		
-	prerequisites = { "tech_engineering_1" }
+	#SE: Remove prerequisite because tech_engineering_1 is no longer
+	#    accessible to players
+	#prerequisites = { "tech_engineering_1" }
 	weight = @tier1weight3
 	
 	modifier = {

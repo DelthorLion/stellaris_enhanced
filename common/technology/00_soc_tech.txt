@@ -208,7 +208,20 @@ tech_industrial_farming = {
 }
 
 #Eco Simulation
+#SE: Changed to a starting technology so that farming subsidies
+# is still available early on. This has a lower footprint than
+# changing policies at this stage, but ideally should be change
+# once this mod expands to include policies.
 tech_eco_simulation = {
+	cost = 0
+	area = society
+	tier = 0
+	category = { biology }
+	start_tech = yes
+}
+
+#SE: Added so that AI can still access the free food increase
+se_tech_eco_simulation_for_ai = {
 	cost = @tier1cost1
 	area = society
 	tier = 1
@@ -218,6 +231,11 @@ tech_eco_simulation = {
 	
 	modifier = {
 		planet_farmers_food_produces_mult = 0.2
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -275,11 +293,18 @@ tech_gene_crops = {
 	area = society
 	tier = 2
 	category = { biology }
-	prerequisites = { "tech_eco_simulation" }
+	#SE: Adjust prerequisite because tech_power_plant_3 is no longer
+	#    accessible to players
+	prerequisites = { "se_tech_eco_simulation_for_ai" }
 	weight = @tier2weight1
 	
 	modifier = {
 		planet_farmers_food_produces_mult = 0.2
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -342,6 +367,11 @@ tech_nano_vitality_crops = {
 	
 	modifier = {
 		planet_farmers_food_produces_mult = 0.2
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -408,6 +438,11 @@ tech_nutrient_replication = {
 	
 	potential = {
 		NOT = { has_authority = auth_machine_intelligence }
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -620,6 +655,11 @@ tech_society_1 = {
 	modifier = {
 		planet_researchers_society_research_produces_mult = 0.2
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -676,6 +716,11 @@ tech_society_2 = {
 		planet_researchers_society_research_produces_mult = 0.2
 	}
 	
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
+
 	weight_modifier = {
 		modifier = {
 			factor = 2
@@ -725,6 +770,11 @@ tech_society_3 = {
 	
 	modifier = {
 		planet_researchers_society_research_produces_mult = 0.2
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -831,8 +881,9 @@ tech_arcane_deciphering = {
 	cost = @tier2cost3
 	area = society
 	tier = 2
-	category = { statecraft }
-	prerequisites = { tech_society_2 }
+	#SE: Remove prerequisite because tech_society_2 is no longer
+	#    accessible to players
+	#prerequisites = { tech_society_2 }
 	weight = @tier2weight3
 	is_rare = yes
 	
@@ -4218,7 +4269,9 @@ tech_planetary_unification = {
 	# also unlocks planet-happiness edict
 	
 	modifier = {
-		country_base_unity_produces_add = 2
+		#SE: Adjust this to 5 so that it's back in line with base
+		#    unity gain.
+		country_base_unity_produces_add = 5
 	}
 	
 	weight_modifier = {
@@ -4766,7 +4819,9 @@ tech_embodied_dynamism = {
 	area = society
 	tier = 3
 	category = { statecraft }
-	prerequisites = { "tech_autonomous_agents" }
+	#SE: Adjust prerequisite to be more in line with The Collective
+	#    Self (non-gestalt equivalent of this).
+	prerequisites = { "tech_colonial_centralization" }
 	weight = @tier3weight3
 	
 	modifier = {

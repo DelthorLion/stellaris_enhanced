@@ -5,7 +5,9 @@ tech_repeatable_improved_tile_energy_output = {
 	tier = @repeatableTechTier
 	category = { field_manipulation }
 	levels = -1
-	prerequisites = {"tech_power_plant_3"}
+	#SE: Adjust prerequisite because tech_power_plant_3 is no longer
+	#    accessible to players
+	prerequisites = {"tech_power_hub_2"}
 	weight = @repeatableTechWeight
 	
 	weight_modifier = {
@@ -128,7 +130,9 @@ tech_repeatable_reduced_building_cost = {
 	tier = @repeatableTechTier
 	category = { computing }
 	levels = 5
-	prerequisites = { "tech_physics_2" }
+	#SE: Adjust prerequisite because tech_physics_2 is no longer
+	#    accessible to players
+	prerequisites = { "tech_basic_science_lab_3" }
 	weight = @repeatableTechWeight
 	
 	weight_modifier = {

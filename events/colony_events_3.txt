@@ -1232,6 +1232,8 @@ planet_event = { #hell
 	}
 }
 
+#SE: Adjust rewards in this whole event because tech_power_plant_1/2/3/4 are no longer
+#    accessible to players
 planet_event = { #science
 	id = colony.3010
 	title = "colony.3010.name"
@@ -1252,36 +1254,36 @@ planet_event = { #science
 			}
 			if = {
 				limit = {
-					has_tech_option = tech_power_plant_4
+					has_tech_option = tech_power_hub_2
 				}
 				add_tech_progress = {
-					tech = tech_power_plant_4
+					tech = tech_power_hub_2
 					progress = 0.5
 				}
 			}
 			else_if = {
 				limit = {
-					has_technology = tech_power_plant_3
+					has_technology = tech_power_hub_1
 				}
-				add_research_option = tech_power_plant_4
+				add_research_option = tech_power_hub_2
 				add_tech_progress = {
-					tech = tech_power_plant_4
+					tech = tech_power_hub_2
 					progress = 0.25
 				}
 			}	
 			else_if = {
 					limit = {
-						has_tech_option = tech_power_plant_3
+						has_tech_option = tech_power_hub_1
 					}
 					add_tech_progress = {
-						tech = tech_power_plant_3
+						tech = tech_power_hub_1
 						progress = 0.5
 					}
 			}
 			else = {
-				add_research_option = tech_power_plant_3
+				add_research_option = tech_power_hub_1
 				add_tech_progress = {
-					tech = tech_power_plant_3
+					tech = tech_power_hub_1
 					progress = 0.25
 				}
 			}
@@ -1365,36 +1367,36 @@ planet_event = { #rocks
 			}
 			if = {
 				limit = {
-					has_tech_option = tech_mining_3
+					has_tech_option = tech_mineral_purification_2
 				}
 				add_tech_progress = {
-					tech = tech_mining_3
+					tech = tech_mineral_purification_2
 					progress = 0.5
 				}
 			}
 			else_if = {
 				limit = {
-					has_technology = tech_mining_2
+					has_technology = tech_mineral_purification_1
 				}
-				add_research_option = tech_mining_3
+				add_research_option = tech_mineral_purification_2
 				add_tech_progress = {
-					tech = tech_mining_3
+					tech = tech_mineral_purification_2
 					progress = 0.25
 				}
 			}	
 			else_if = {
 				limit = {
-					has_tech_option = tech_mining_2
+					has_tech_option = tech_mineral_purification_1
 				}
 				add_tech_progress = {
-					tech = tech_mining_2
+					tech = tech_mineral_purification_1
 					progress = 0.5
 				}
 			}
 			else = {
-				add_research_option = tech_mining_2
+				add_research_option = tech_mineral_purification_1
 				add_tech_progress = {
-					tech = tech_mining_2
+					tech = tech_mineral_purification_1
 					progress = 0.25
 				}
 			}	

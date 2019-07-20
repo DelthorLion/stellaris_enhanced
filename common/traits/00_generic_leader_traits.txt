@@ -123,7 +123,9 @@ leader_trait_arrested_development = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_arrested_development.dds"
 	self_modifier = {
-		species_leader_exp_gain = -10
+		#SE: Adjusted this so that it no longer totally blocks leader
+		#    advancement, and instead slows it more than stubborn/equivalents.
+		species_leader_exp_gain = -0.5
 	}
 	leader_potential_add = {
 		NOT = { leader_class = ruler}

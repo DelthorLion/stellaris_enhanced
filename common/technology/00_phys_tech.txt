@@ -246,6 +246,11 @@ tech_space_science_1 = {
 	modifier = {
 		station_researchers_produces_mult = 0.10
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -278,6 +283,11 @@ tech_space_science_2 = {
 	
 	modifier = {
 		station_researchers_produces_mult = 0.10
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -312,6 +322,11 @@ tech_space_science_3 = {
 	modifier = {
 		station_researchers_produces_mult = 0.10
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -345,6 +360,11 @@ tech_space_science_4 = {
 	modifier = {
 		station_researchers_produces_mult = 0.10
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -377,6 +397,11 @@ tech_space_science_5 = {
 	
 	modifier = {
 		station_researchers_produces_mult = 0.10
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -413,6 +438,11 @@ tech_physics_1 = {
 	
 	modifier = {
 		planet_researchers_physics_research_produces_mult = 0.2
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {
@@ -468,6 +498,11 @@ tech_physics_2 = {
 	modifier = {
 		planet_researchers_physics_research_produces_mult = 0.2
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -518,6 +553,11 @@ tech_physics_3 = {
 	modifier = {
 		planet_researchers_physics_research_produces_mult = 0.2
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -562,7 +602,9 @@ tech_global_research_initiative = {
 	tier = 3
 	cost = @tier3cost1
 	category = { computing }
-	prerequisites = { "tech_physics_1" "tech_colonial_centralization" }
+	#SE: Adjust prerequisite because tech_physics_1 is no longer
+	#    accessible to players
+	prerequisites = { "tech_basic_science_lab_2" "tech_colonial_centralization" }
 	weight = @tier3weight1
 	
 	weight_modifier = {
@@ -1879,6 +1921,11 @@ tech_power_plant_2 = {
 	modifier = {
 		planet_technician_energy_produces_mult = 0.2
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -1918,6 +1965,11 @@ tech_power_plant_3 = {
 	modifier = {
 		planet_technician_energy_produces_mult = 0.2
 	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
+	}
 	
 	weight_modifier = {
 		modifier = {
@@ -1956,6 +2008,11 @@ tech_power_plant_4 = {
 		
 	modifier = {
 		planet_technician_energy_produces_mult = 0.2
+	}
+
+	#SE: Remove for players to eliminate free resource increase over time
+	potential = {
+		is_ai = yes
 	}
 	
 	weight_modifier = {

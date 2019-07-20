@@ -126,9 +126,10 @@ tech_neuroregeneration = {
 	is_rare = yes
 	weight = 0
 
+	#SE: Removed leader skill level and doubled experience gain
+	#    in order to better consolidate leader skill cap.
 	modifier = {
-		species_leader_exp_gain = 0.25
-		leader_skill_levels = 1
+		species_leader_exp_gain = 0.5
 	}
 
 	weight_modifier = {

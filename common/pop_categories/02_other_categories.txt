@@ -38,7 +38,8 @@ purge = {
 	}
 
 	resettlement_cost = {
-		energy = 100
+		#SE: Changed from 100 energy to 20 influence
+		influence = 20
 	}
 	
 	pop_modifier = {
@@ -82,7 +83,8 @@ robot_servant = {
 	}
 
 	resettlement_cost = {
-		energy = 100
+		#SE: Changed from 100 energy to 10 influence
+		influence = 10
 	}
 	
 	resources = {
@@ -117,7 +119,8 @@ slave = {
 	}
 
 	resettlement_cost = {
-		energy = 50
+		#SE: Changed from 50 energy to 10 influence
+		influence = 10
 	}	
 	
 	resources = {
@@ -217,7 +220,8 @@ bio_trophy = {
 	}
 
 	resettlement_cost = {
-		energy = 50
+		#SE: Changed from 50 energy to 10 influence
+		influence = 10
 	}
 	
 	pop_modifier = {
@@ -440,7 +444,8 @@ assimilation = {
 	}
 
 	resettlement_cost = {
-		energy = 100
+		#SE: Changed from 50 energy to 10 influence
+		influence = 10
 	}
 	
 	pop_modifier = {
@@ -863,7 +868,8 @@ precursor = {
 	}
 
 	resettlement_cost = {
-		energy = 100
+		#SE: Changed from 100 energy to 20 influence
+		influence = 20
 	}	
 	
 	resources = {
