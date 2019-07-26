@@ -1,0 +1,14 @@
+research_all_technologies
+minerals 10000
+instant_build
+grow_pop
+populate
+instant_build
+minerals 10000
+grow_pops 15
+research_all_technologies
+add_pops 30
+minerals 10000
+instant_build
+grow_pops 20
+grow_pops 1

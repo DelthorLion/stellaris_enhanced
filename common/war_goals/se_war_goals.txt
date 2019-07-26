@@ -56,45 +56,51 @@ se_wg_force_ideology_corporate = {
 					amount = 0.10
 				}				
 			}			
-            last_created_country = {
+            if = {
                 limit = {
                     NOR = {
                         root = { has_ethic = ethic_fanatic_authoritarian }
                         root = { has_ethic = ethic_fanatic_egalitarian }
                     }
                 }
-                change_government = {
-                    authority = auth_oligarchic
-                    civics = {
-                        civic = random
-                        civic = random
-                        civic = random
+                last_created_country = {
+                    change_government = {
+                        authority = auth_oligarchic
+                        civics = {
+                            civic = random
+                            civic = random
+                            civic = random
+                        }
                     }
                 }
             }
-            last_created_country = {
+            if = {
                 limit = {
                     root = { has_ethic = ethic_fanatic_authoritarian }
                 }
-                change_government = {
-                    authority = auth_dictatorial
-                    civics = {
-                        civic = random
-                        civic = random
-                        civic = random
+                last_created_country = {
+                    change_government = {
+                        authority = auth_dictatorial
+                        civics = {
+                            civic = random
+                            civic = random
+                            civic = random
+                        }
                     }
                 }
             }
-            last_created_country = {
+            if = {
                 limit = {
                     root = { has_ethic = ethic_fanatic_egalitarian }
                 }
-                change_government = {
-                    authority = auth_democratic
-                    civics = {
-                        civic = random
-                        civic = random
-                        civic = random
+                last_created_country = {
+                    change_government = {
+                        authority = auth_democratic
+                        civics = {
+                            civic = random
+                            civic = random
+                            civic = random
+                        }
                     }
                 }
             }

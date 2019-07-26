@@ -232,7 +232,7 @@ decision_end_population_control = {
 	}
 }
 
-# Enable Population Controls Machine
+# Enable Population Controls Hive
 decision_enact_population_control_gestalt = {
 	owned_planets_only = yes
 	sound = event_administrative_work
@@ -249,7 +249,12 @@ decision_enact_population_control_gestalt = {
 		owner = {
 			is_gestalt = yes
 		}
-		NOT = { has_modifier = planet_population_control_gestalt }
+		#SE: Machine empires have been moved to their own form of population
+		#    control to split up organic growth and pop assembly.
+		NOR = {
+			has_modifier = planet_population_control_gestalt
+			owner = { has_authority = auth_machine_intelligence }
+		}
 	}
 	
 	effect = {

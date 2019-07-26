@@ -438,14 +438,14 @@
 		GUARANTEED_COLONIES_MAX = 2
 	
 		# These values control the mid and end game sliders in game setup
-		MID_GAME_START_DEFAULT = 100
+		MID_GAME_START_DEFAULT = 75
 		MID_GAME_START_MAX = 400
 		MID_GAME_START_MIN = 25
-		END_GAME_START_DEFAULT = 200
+		END_GAME_START_DEFAULT = 125
 		END_GAME_START_MAX = 800
 		END_GAME_START_MIN = 50
 		START_YEAR_SLIDER_INTERVAL = 25		
-		VICTORY_YEAR_DEFAULT = 300
+		VICTORY_YEAR_DEFAULT = 200
 		VICTORY_YEAR_MAX = 1050
 		VICTORY_YEAR_MIN = 100
 		VICTORY_YEAR_SLIDER_INTERVAL = 50
@@ -461,7 +461,7 @@
 		SCORE_FEDERATION_MEMBERS = 0.1 # Fraction of Federation member's own score
 		SCORE_CRISIS_KILLS = 10 # Per crisis ship killed
 		
-		TECH_COST_DEFAULT = 1.0
+		TECH_COST_DEFAULT = 0.75
 		TECH_COST_MIN = 0.25
 		TECH_COST_MAX = 5.00
 		TECH_COST_SLIDER_INTERVAL = 0.25
@@ -644,8 +644,8 @@
 		LEADER_AGE_MIN			= 28				# Min age of generated leaders
 		LEADER_AGE_MAX			= 50				# Max age of generated leaders
 		LEADER_SKILL_LEVEL_START	= 1			# Skill Level Leaders start with. XP needed { 200 475 825 1250 }
-		LEADER_EXPERIENCE_REQUIREMENT_BASE_VALUE					= 170 # Base value when calculating required experience for next skill level
-		LEADER_EXPERIENCE_REQUIREMENT_SCALE_VALUE					= 30 # Scale factor when calculating required experience for next skill level
+		LEADER_EXPERIENCE_REQUIREMENT_BASE_VALUE					= 125 # Base value when calculating required experience for next skill level
+		LEADER_EXPERIENCE_REQUIREMENT_SCALE_VALUE					= 25 # Scale factor when calculating required experience for next skill level
 		
 		LEADER_RULER_MONARCH_EXPERIENCE								= 5.0
 		LEADER_RULER_HEIR_EXPERIENCE								= 1.0
@@ -1134,7 +1134,8 @@
 		MIN_POLITICAL_POWER_NEGATIVE_STABILITY_IMPACT		= 0.05
 		MAX_POLITICAL_POWER_NEGATIVE_STABILITY_IMPACT		= 20
 	
-		BASE_POP_GROWTH						= 3		# Base growth rate of pops
+		#SE: Increasing base pop growth to speed up the game.
+		BASE_POP_GROWTH						= 4		# Base growth rate of pops
 		NEW_COLONY_GROWTH					= 0.5	# New colonies have a penalty to their growth
 		MAX_NEW_COLONIES_SCALE				= 2 	# At this ratio of new to old colonies, no further scaling of migration
 		REQUIRED_POP_GROWTH					= 100	# Required growth to make a new pop

@@ -15,3 +15,11 @@ se_total_emmigration_with_maintenance = {
 	planet_pops_upkeep_mult = 0.25
 	planet_emigration_push_add = 150
 }
+
+se_planet_population_control_machine = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_politics.dds"
+	icon_frame = 2
+	custom_tooltip = STOPS_POPULATION_GROWTH
+	show_only_custom_tooltip = yes
+	planet_pop_assemblers_upkeep_mult = -0.50
+}

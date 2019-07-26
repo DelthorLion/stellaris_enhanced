@@ -66,3 +66,69 @@ se_decision_end_total_emigration = {
         remove_modifier = "se_total_emmigration_with_maintenance"
     }
 }
+
+# Enable Population Controls Machine
+se_decision_enact_population_control_machine = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+		cost = {
+			influence = 25
+		}
+	}
+
+	potential = {
+		owner = {
+			has_authority = auth_machine_intelligence
+		}
+		NOT = { has_modifier = se_planet_population_control_machine }
+	}
+	
+	effect = {
+		add_modifier = { modifier = "se_planet_population_control_machine" days = -1 } # if name changes, change in jobs too
+	}
+
+	ai_weight = {
+		weight = 5
+		modifier = { # don't enable if you have free housing and no city districts left to build
+			factor = 0
+			OR = {
+				free_housing > 0
+				num_free_districts = {
+					type = any
+					value > 0
+				}
+				has_building_construction = yes #Added since they're probably building housing
+			}
+		}
+	}
+}
+
+se_decision_end_population_control_machine = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		has_modifier = se_planet_population_control_machine
+	}
+
+	effect = {
+		remove_modifier = "se_planet_population_control_machine"
+	}
+
+	ai_weight = {
+		weight = 20
+		modifier = { # don't end if less than 1 housing
+			factor = 0
+			free_housing < 1
+		}
+	}
+}
