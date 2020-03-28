@@ -170,10 +170,12 @@ decision_enact_population_control = {
 	potential = {
 		owner = {
 			NOT = { has_policy_flag = population_controls_not_allowed }
-			#SE: Adding Rogue Servitors because they should have this.
 			OR = {
 				is_regular_empire = yes
-				has_valid_civic = civic_machine_servitor
+				#SE: Machine Empires Enhanced: Added organic population controls for Rogue Servitors
+				#    and Driven Assimilators
+				has_civic = civic_machine_servitor
+				has_civic = civic_machine_assimilator
 			}
 		}
 		NOT = { has_modifier = planet_population_control }
@@ -232,7 +234,7 @@ decision_end_population_control = {
 	}
 }
 
-# Enable Population Controls Hive
+# Enable Population Controls Machine
 decision_enact_population_control_gestalt = {
 	owned_planets_only = yes
 	sound = event_administrative_work
@@ -249,8 +251,9 @@ decision_enact_population_control_gestalt = {
 		owner = {
 			is_gestalt = yes
 		}
-		#SE: Machine empires have been moved to their own form of population
-		#    control to split up organic growth and pop assembly.
+		#SE: Machine Empires Enhanced: Moved machine empire population controls
+		#  to a separate policy to split out growth for machines and biological pops
+		#  in a machine empire.
 		NOR = {
 			has_modifier = planet_population_control_gestalt
 			owner = { has_authority = auth_machine_intelligence }

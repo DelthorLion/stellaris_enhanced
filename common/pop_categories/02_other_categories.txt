@@ -1,7 +1,7 @@
 purge = {
 	rank = 0
 	clothes_texture_index = 2
-	
+
 	assign_to_pop = {
 		OR = {
 			is_being_purged = yes
@@ -31,17 +31,18 @@ purge = {
 	weight = {
 		weight = 20
 	}
-	
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = yes
 	}
 
+	#SE: Pops Enhanced: Other adjustments should remove the need for constant
+	#  manual ressetlement, so this should return to an influence cost.
 	resettlement_cost = {
-		#SE: Changed from 100 energy to 20 influence
 		influence = 20
 	}
-	
+
 	pop_modifier = {
 		pop_political_power = -1
 	}
@@ -53,13 +54,15 @@ purge = {
 robot_servant = {
 	rank = 0
 	display_category = worker
-	
+
+	change_job_threshold = 1.15
+
 	pop_modifier = {
 		pop_political_power = -1
 		pop_housing_usage_base = 0.5
 		pop_amenities_usage_base = 0.5
 	}
-	
+
 	assign_to_pop = {
 		NAND = {
 			exists = planet
@@ -75,77 +78,84 @@ robot_servant = {
 	}
 	weight = {
 		weight = 15
-	}	
-	
+	}
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = yes
 	}
 
+	#SE: Pops Enhanced: Other adjustments should remove the need for constant
+	#  manual ressetlement, so this should return to an influence cost.
 	resettlement_cost = {
-		#SE: Changed from 100 energy to 10 influence
 		influence = 10
 	}
-	
+
 	resources = {
 		category = pop_category_robot
 		upkeep = {
 			energy = @living_standard_energy_normal
 		}
-	}		
+	}
 }
 
 slave = {
 	rank = 0
 	clothes_texture_index = 2
 	display_category = worker
-	
+
+	change_job_threshold = 1.15
+
 	assign_to_pop = {
 		is_enslaved = yes
 	}
 	weight = {
 		weight = 10
 	}
-	
+
 	pop_modifier = {
 		pop_political_power = -0.75
 		pop_housing_usage_base = 0.75
 		pop_amenities_usage_base = 0.75
 	}
-	
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = yes
 	}
 
+	#SE: Pops Enhanced: Other adjustments should remove the need for constant
+	#  manual ressetlement, so this should return to an influence cost.
 	resettlement_cost = {
-		#SE: Changed from 50 energy to 10 influence
 		influence = 10
-	}	
-	
+	}
+
 	resources = {
 		category = pop_category_slave
-		
+
 		# Organic Upkeep
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_very_high_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_low
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_high_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_low
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				OR = {
 					has_normal_living_standard_type = yes
 					has_academic_living_standard_type = yes
@@ -153,37 +163,81 @@ slave = {
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_very_low
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				OR = {
 					has_low_living_standard_type = yes
 					has_stratified_living_standard_type = yes
-				}			
+				}
 			}
 			food = @living_standard_food_normal
-		}	
-		
+		}
+
+		# Lithoid Upkeep
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_very_high_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_low
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_high_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_low
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				OR = {
+					has_normal_living_standard_type = yes
+					has_academic_living_standard_type = yes
+				}
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_very_low
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				OR = {
+					has_low_living_standard_type = yes
+					has_stratified_living_standard_type = yes
+				}
+			}
+			minerals = @living_standard_food_normal
+		}
+
 		# Robotic Upkeep
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_very_high_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_low
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_high_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_low
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				OR = {
 					has_normal_living_standard_type = yes
@@ -192,20 +246,46 @@ slave = {
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_very_low
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_stratified_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
-		}		
-	}		
+		}
+
+		produces = {
+			trigger = {
+				is_lithoid = yes
+				has_trait = trait_lithoid_scintillating
+			}
+			rare_crystals = @lithoid_trait_resource_production
+		}
+
+		produces = {
+			trigger = {
+				is_lithoid = yes
+				has_trait = trait_lithoid_gaseous_byproducts
+			}
+			exotic_gases = @lithoid_trait_resource_production
+		}
+
+		produces = {
+			trigger = {
+				is_lithoid = yes
+				has_trait = trait_lithoid_volatile_excretions
+			}
+			volatile_motes = @lithoid_trait_resource_production
+		}
+	}
 }
 
 bio_trophy = {
 	rank = 0
 	clothes_texture_index = 1
+
+	change_job_threshold = 1.25
 
 	assign_to_pop = {
 		has_citizenship_type = { type = citizenship_organic_trophy }
@@ -219,36 +299,69 @@ bio_trophy = {
 		always = yes
 	}
 
+	#SE: Pops Enhanced: Other adjustments should remove the need for constant
+	#  manual ressetlement, so this should return to an influence cost.
 	resettlement_cost = {
-		#SE: Changed from 50 energy to 10 influence
 		influence = 10
 	}
-	
+
 	pop_modifier = {
 		pop_political_power = 10
 		pop_housing_usage_base = 1
 		pop_amenities_usage_no_happiness_base = 1
-	}	
+	}
 	resources = {
 		category = pop_category_bio_trophy
 		upkeep = {
+			trigger = { is_lithoid = no }
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_very_high
+		}
+
+		upkeep = {
+			trigger = { is_lithoid = yes }
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_very_high
+		}
+
+		produces = {
+			trigger = {
+				is_lithoid = yes
+				has_trait = trait_lithoid_scintillating
+			}
+			rare_crystals = @lithoid_trait_resource_production
+		}
+
+		produces = {
+			trigger = {
+				is_lithoid = yes
+				has_trait = trait_lithoid_gaseous_byproducts
+			}
+			exotic_gases = @lithoid_trait_resource_production
+		}
+
+		produces = {
+			trigger = {
+				is_lithoid = yes
+				has_trait = trait_lithoid_volatile_excretions
+			}
+			volatile_motes = @lithoid_trait_resource_production
 		}
 	}
 
 	unemployment_penalties = {
 			pop_happiness = -0.80
-	}	
+	}
 }
 
 criminal = {
 	rank = 1
 	clothes_texture_index = 2
-	
+	change_job_threshold = 2
+
 	demotion_time = 0
 	display_unemployment = no
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			can_generate_trade_value = yes
@@ -269,7 +382,7 @@ criminal = {
 			has_high_living_standard_type = yes
 		}
 		trade_value_add = @trade_value_high
-	}	
+	}
 	triggered_planet_modifier = {
 		potential = {
 			can_generate_trade_value = yes
@@ -290,23 +403,23 @@ criminal = {
 	triggered_planet_modifier = {
 		potential = {
 			can_generate_trade_value = yes
-			has_low_living_standard_type = yes	
+			has_low_living_standard_type = yes
 		}
 		trade_value_add = @trade_value_very_low
-	}	
-	
+	}
+
 	should_apply_unemployment_penalties = {
 		NOR = {
 			has_very_high_living_standard_type = yes
 			has_high_living_standard_type = yes
 		}
 	}
-	
+
 	pop_modifier = {
 		pop_housing_usage_base = 1
 		pop_amenities_usage_base = 1
 	}
-	
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = no
@@ -314,7 +427,7 @@ criminal = {
 
 	resources = {
 		category = pop_category_workers
-		
+
 		# Utopian living standards
 		produces = {
 			trigger = {
@@ -322,35 +435,39 @@ criminal = {
 			}
 			unity = 1
 		}
-		
+
 		# Organic Upkeep
 		upkeep = {
 			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_shared_burden_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_shared_burden
-		}			
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_very_high_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_very_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_high_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				OR = {
 					has_normal_living_standard_type = yes
 					has_academic_living_standard_type = yes
@@ -358,24 +475,85 @@ criminal = {
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_normal
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_stratified_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_low
-		}	
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_low_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_very_low
 		}
-		
+
+		# Lithoid Upkeep
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_shared_burden_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_shared_burden
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_very_high_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_very_high
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_high_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_high
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				OR = {
+					has_normal_living_standard_type = yes
+					has_academic_living_standard_type = yes
+				}
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_normal
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_stratified_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_low
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_low_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_very_low
+		}
+
 		# Robotic Upkeep
 		upkeep = {
 			trigger = {
@@ -384,52 +562,53 @@ criminal = {
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_shared_burden
-		}			
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_very_high_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_very_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_high_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
-				is_robotic_species = yes 
+			trigger = {
+				is_robotic_species = yes
 				has_normal_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_normal
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_stratified_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_low
-		}	
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_low_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_very_low
 		}
-	}		
+	}
 }
 
 assimilation = {
 	rank = 0
+
 	assign_to_pop = {
 		is_being_assimilated = yes
 	}
@@ -437,17 +616,18 @@ assimilation = {
 	weight = {
 		weight = 15
 	}
-	
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = yes
 	}
 
+	#SE: Pops Enhanced: Other adjustments should remove the need for constant
+	#  manual ressetlement, so this should return to an influence cost.
 	resettlement_cost = {
-		#SE: Changed from 50 energy to 10 influence
 		influence = 10
 	}
-	
+
 	pop_modifier = {
 		pop_political_power = -1
 	}
@@ -460,9 +640,10 @@ assimilation = {
 deviant_drone = {
 	rank = 2
 	clothes_texture_index = 2
-	
+	change_job_threshold = 2
+
 	demotion_time = 0
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			can_generate_trade_value = yes
@@ -483,7 +664,7 @@ deviant_drone = {
 			has_high_living_standard_type = yes
 		}
 		trade_value_add = @trade_value_high
-	}	
+	}
 	triggered_planet_modifier = {
 		potential = {
 			can_generate_trade_value = yes
@@ -504,23 +685,23 @@ deviant_drone = {
 	triggered_planet_modifier = {
 		potential = {
 			can_generate_trade_value = yes
-			has_low_living_standard_type = yes	
+			has_low_living_standard_type = yes
 		}
 		trade_value_add = @trade_value_very_low
-	}	
-	
+	}
+
 	should_apply_unemployment_penalties = {
 		NOR = {
 			has_very_high_living_standard_type = yes
 			has_high_living_standard_type = yes
 		}
 	}
-	
+
 	pop_modifier = {
 		pop_housing_usage_base = 1
 		pop_amenities_usage_base = 1
 	}
-	
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = no
@@ -528,7 +709,7 @@ deviant_drone = {
 
 	resources = {
 		category = pop_category_workers
-		
+
 		# Utopian living standards
 		produces = {
 			trigger = {
@@ -536,35 +717,39 @@ deviant_drone = {
 			}
 			unity = 1
 		}
-		
+
 		# Organic Upkeep
 		upkeep = {
 			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_shared_burden_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_shared_burden
-		}			
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_very_high_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_very_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_high_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				OR = {
 					has_normal_living_standard_type = yes
 					has_academic_living_standard_type = yes
@@ -572,24 +757,85 @@ deviant_drone = {
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_normal
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_stratified_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_low
-		}	
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_low_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_very_low
 		}
-		
+
+		# Lithoid Upkeep
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_shared_burden_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_shared_burden
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_very_high_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_very_high
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_high_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_high
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				OR = {
+					has_normal_living_standard_type = yes
+					has_academic_living_standard_type = yes
+				}
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_normal
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_stratified_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_low
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_low_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_very_low
+		}
+
 		# Robotic Upkeep
 		upkeep = {
 			trigger = {
@@ -598,56 +844,57 @@ deviant_drone = {
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_shared_burden
-		}			
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_very_high_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_very_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_high_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
-				is_robotic_species = yes 
+			trigger = {
+				is_robotic_species = yes
 				has_normal_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_normal
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_stratified_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_low
-		}	
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_low_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_very_low
 		}
-	}		
+	}
 }
 
 corrupt_drone = {
 	rank = 2
 	clothes_texture_index = 2
-	
+	change_job_threshold = 2
+
 	demotion_time = 0
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			can_generate_trade_value = yes
@@ -668,7 +915,7 @@ corrupt_drone = {
 			has_high_living_standard_type = yes
 		}
 		trade_value_add = @trade_value_high
-	}	
+	}
 	triggered_planet_modifier = {
 		potential = {
 			can_generate_trade_value = yes
@@ -689,23 +936,23 @@ corrupt_drone = {
 	triggered_planet_modifier = {
 		potential = {
 			can_generate_trade_value = yes
-			has_low_living_standard_type = yes	
+			has_low_living_standard_type = yes
 		}
 		trade_value_add = @trade_value_very_low
-	}	
-	
+	}
+
 	should_apply_unemployment_penalties = {
 		NOR = {
 			has_very_high_living_standard_type = yes
 			has_high_living_standard_type = yes
 		}
 	}
-	
+
 	pop_modifier = {
 		pop_housing_usage_base = 1
 		pop_amenities_usage_base = 1
 	}
-	
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = no
@@ -713,7 +960,7 @@ corrupt_drone = {
 
 	resources = {
 		category = pop_category_workers
-		
+
 		# Utopian living standards
 		produces = {
 			trigger = {
@@ -721,35 +968,39 @@ corrupt_drone = {
 			}
 			unity = 1
 		}
-		
+
 		# Organic Upkeep
 		upkeep = {
 			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_shared_burden_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_shared_burden
-		}			
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_very_high_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_very_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_high_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				OR = {
 					has_normal_living_standard_type = yes
 					has_academic_living_standard_type = yes
@@ -757,24 +1008,85 @@ corrupt_drone = {
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_normal
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_stratified_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_low
-		}	
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				has_low_living_standard_type = yes
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_very_low
 		}
-		
+
+		# Lithoid Upkeep
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_shared_burden_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_shared_burden
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_very_high_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_very_high
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_high_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_high
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				OR = {
+					has_normal_living_standard_type = yes
+					has_academic_living_standard_type = yes
+				}
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_normal
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_stratified_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_low
+		}
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				has_low_living_standard_type = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_very_low
+		}
+
 		# Robotic Upkeep
 		upkeep = {
 			trigger = {
@@ -783,60 +1095,66 @@ corrupt_drone = {
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_shared_burden
-		}			
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_very_high_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_very_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_high_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_high
-		}		
+		}
 		upkeep = {
-			trigger = { 
-				is_robotic_species = yes 
+			trigger = {
+				is_robotic_species = yes
 				has_normal_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_normal
-		}		
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_stratified_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_low
-		}	
+		}
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 				has_low_living_standard_type = yes
 			}
 			energy = @living_standard_energy_normal
 			consumer_goods = @living_standard_luxuries_very_low
 		}
-	}		
+	}
 }
 
 precursor = {
 	rank = 3
 	clothes_texture_index = 1
-	
+	change_job_threshold = 2
+
 	assign_to_pop = {
 		exists = owner
-		is_same_species = owner
-		owner = { 
+		OR = {
+			is_same_species = owner
+			owner = {
+				is_fallen_empire_spiritualist = yes
+			}
+		}
+		owner = {
 			OR = {
-				is_country_type = fallen_empire 
+				is_country_type = fallen_empire
 				is_country_type = awakened_fallen_empire
 			}
 		}
@@ -855,107 +1173,151 @@ precursor = {
 			}
 		}
 	}
-	
+
 	pop_modifier = {
 		pop_political_power = 9
 		pop_housing_usage_base = 2
 		pop_amenities_usage_base = 2
-	}	
-	
+	}
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = yes
 	}
 
+	#SE: Pops Enhanced: Other adjustments should remove the need for constant
+	#  manual ressetlement, so this should return to an influence cost.
 	resettlement_cost = {
-		#SE: Changed from 100 energy to 20 influence
 		influence = 20
-	}	
-	
+	}
+
 	resources = {
 		category = pop_category_precursor
-		
+
 		# Organic Upkeep
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				exists = owner
-				owner = { 
+				owner = {
 					is_spiritualist = no
 				}
 			}
 			food = 2.0
 			consumer_goods = 2.0
-		}	
+		}
 
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 				exists = owner
-				owner = { 
+				owner = {
 					is_spiritualist = yes
 				}
 			}
 			food = 1.0
 			consumer_goods = 1.0
-		}			
-		
+		}
+
+		# Lithoid Upkeep
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				exists = owner
+				owner = {
+					is_spiritualist = no
+				}
+			}
+			minerals = 2.0
+			consumer_goods = 2.0
+		}
+
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+				exists = owner
+				owner = {
+					is_spiritualist = yes
+				}
+			}
+			minerals = 1.0
+			consumer_goods = 1.0
+		}
+
 		# Robotic Upkeep
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 			}
 			energy = @living_standard_energy_normal
-		}				
-	}		
+		}
+	}
 }
 
 xeno_ward = {
 	rank = 0
 	clothes_texture_index = 3
-	
+	change_job_threshold = 2
+
 	pop_modifier = {
 		pop_political_power = -1
 		pop_housing_usage_base = 1
 		pop_amenities_usage_base = 1
 	}
-	
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = no
 	}
-	
+
 	resources = {
 		category = pop_category_xeno_ward
-		
+
 		# Organic Upkeep
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_organic_species = yes
+				is_lithoid = no
 			}
 			food = @living_standard_food_normal
 			consumer_goods = @living_standard_luxuries_very_high
-		}			
-		
+		}
+
+		# Lithoid Upkeep
+		upkeep = {
+			trigger = {
+				is_organic_species = yes
+				is_lithoid = yes
+			}
+			minerals = @living_standard_food_normal
+			consumer_goods = @living_standard_luxuries_very_high
+		}
+
 		# Robotic Upkeep
 		upkeep = {
-			trigger = { 
+			trigger = {
 				is_robotic_species = yes
 			}
 			energy = @living_standard_energy_normal
-		}				
-	}		
+		}
+	}
 }
 
 pre_sapients = {
 	rank = 0
 	clothes_texture_index = 3
-	
+	change_job_threshold = 1.25
+
 	assign_to_pop = {
-		NOT = { exists = owner }
+		#NOT = { exists = owner }
+		is_sapient = no
 	}
 	weight = {
-		weight = 1
+		weight = 9000
 	}
 
 	pop_modifier = {
@@ -964,18 +1326,18 @@ pre_sapients = {
 		pop_amenities_usage_no_happiness_base = -1
 		pop_happiness = 1
 	}
-	
+
 	# scope: pop to be resettled
 	allow_resettlement = {
 		always = no
 	}
-	
+
 	resources = {
 		category = pop_category_pre_sapients
-		
+
 		# Organic Upkeep
 		upkeep = {
-		}			
-					
-	}		
+		}
+
+	}
 }

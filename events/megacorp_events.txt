@@ -76,7 +76,7 @@ country_event = {
 	desc = mega.100.desc
 	picture = GFX_evt_ruined_system
 	show_sound = event_planetary_riot
-	location = fromfrom
+	location = from
 
 	is_triggered_only = yes
 
@@ -94,7 +94,7 @@ country_event = {
 	immediate = {
 		while = {
 			count = 3
-			fromfrom = {
+			from = {
 				random_system_planet = {
 					limit = { has_planet_flag = consecrated@root }
 					remove_planet_flag = consecrated@root
@@ -277,6 +277,7 @@ planet_event = {
 					has_modifier = compliance_protocols
 					has_modifier = hunter_killer_drones
 					has_modifier = planet_population_control_gestalt
+					#SE: Machine Empires Enhanced: Added new population control decision
 					has_modifier = se_planet_population_control_machine
 				}
 			}
@@ -326,6 +327,7 @@ planet_event = {
 					has_modifier = compliance_protocols
 					has_modifier = hunter_killer_drones
 					has_modifier = planet_population_control_gestalt
+					#SE: Machine Empires Enhanced: Added new population control decision
 					has_modifier = se_planet_population_control_machine
 				}
 			}
@@ -341,6 +343,7 @@ planet_event = {
 				limit = { has_modifier = planet_population_control_gestalt }
 				remove_modifier = planet_population_control_gestalt
 			}
+			#SE: Machine Empires Enhanced: Added new population control decision
 			if = {
 				limit = { has_modifier = se_planet_population_control_machine }
 				remove_modifier = se_planet_population_control_machine

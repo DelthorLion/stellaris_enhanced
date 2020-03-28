@@ -16,7 +16,7 @@ se_wg_force_ideology_corporate = {
 		}
 		has_total_war_cb = no
 		from = { is_country_type = default }
-        has_authority = auth_corporate
+        	has_authority = auth_corporate
 	}
 	possible = {
 		always = yes

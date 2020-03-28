@@ -352,9 +352,9 @@ planet_event = {
 	option = {
 		name = colony_mod.3.a
 		add_modifier = {
-				modifier = "recent_quake"
-				days = 365
-			}
+			modifier = "recent_quake"
+			days = 365
+		}
 		custom_tooltip = quake_report_tooltip
 		hidden_effect = {
 			random_list = {
@@ -364,7 +364,6 @@ planet_event = {
 			}
 		}
 	}
-
 }
 
 planet_event = {
@@ -1149,13 +1148,13 @@ planet_event = { #hell
 	desc = {
 		text = colony.3006.spir.desc
 		trigger = {
-			is_spiritualist = yes
+			owner = { is_spiritualist = yes }
 		}
 	}
 	desc = {
 		text = colony.3006.desc
 		trigger = {
-			is_spiritualist = no
+			owner = { is_spiritualist = no }
 		}
 	}
 	picture = GFX_evt_space_funeral
@@ -1232,8 +1231,7 @@ planet_event = { #hell
 	}
 }
 
-#SE: Adjust rewards in this whole event because tech_power_plant_1/2/3/4 are no longer
-#    accessible to players
+#SE: Resources Enhanced: Adjustment based on removed tech
 planet_event = { #science
 	id = colony.3010
 	title = "colony.3010.name"
@@ -1289,6 +1287,7 @@ planet_event = { #science
 			}
 		}
 		custom_tooltip = portal_closed_tooltip
+		hidden_effect = { set_planet_flag = dportal_closed }
 	}
 }
 
@@ -1344,64 +1343,67 @@ planet_event = { #prayer
 			}
 		}
 		custom_tooltip = portal_closed_tooltip
+		hidden_effect = { set_planet_flag = dportal_closed }
 	}
 }
 
+#SE: Resources Enhanced: Adjustment based on removed tech
 planet_event = { #rocks
-	id = colony.3012
-	title = "colony.3010.name"
-	desc = "colony.3012.desc"
-	picture = GFX_evt_news_room
-	location = ROOT
+id = colony.3012
+title = "colony.3010.name"
+desc = "colony.3012.desc"
+picture = GFX_evt_news_room
+location = ROOT
 
-	is_triggered_only = yes
+is_triggered_only = yes
 
-	option = {
-		name = EXCELLENT
-		owner = {
-			add_monthly_resource_mult = {
-				resource = engineering_research
-				value = @tier2researchreward
-				min = @tier2researchmin
-				max = @tier2researchmax
+option = {
+	name = EXCELLENT
+	owner = {
+		add_monthly_resource_mult = {
+			resource = engineering_research
+			value = @tier2researchreward
+			min = @tier2researchmin
+			max = @tier2researchmax
+		}
+		if = {
+			limit = {
+				has_tech_option = tech_mineral_purification_2
 			}
-			if = {
-				limit = {
-					has_tech_option = tech_mineral_purification_2
-				}
-				add_tech_progress = {
-					tech = tech_mineral_purification_2
-					progress = 0.5
-				}
+			add_tech_progress = {
+				tech = tech_mineral_purification_2
+				progress = 0.5
 			}
-			else_if = {
-				limit = {
-					has_technology = tech_mineral_purification_1
-				}
-				add_research_option = tech_mineral_purification_2
-				add_tech_progress = {
-					tech = tech_mineral_purification_2
-					progress = 0.25
-				}
-			}	
-			else_if = {
-				limit = {
-					has_tech_option = tech_mineral_purification_1
-				}
-				add_tech_progress = {
-					tech = tech_mineral_purification_1
-					progress = 0.5
-				}
+		}
+		else_if = {
+			limit = {
+				has_technology = tech_mineral_purification_1
 			}
-			else = {
-				add_research_option = tech_mineral_purification_1
-				add_tech_progress = {
-					tech = tech_mineral_purification_1
-					progress = 0.25
-				}
+			add_research_option = tech_mineral_purification_2
+			add_tech_progress = {
+				tech = tech_mineral_purification_2
+				progress = 0.25
+			}
+		}	
+		else_if = {
+			limit = {
+				has_tech_option = tech_mineral_purification_1
+			}
+			add_tech_progress = {
+				tech = tech_mineral_purification_1
+				progress = 0.5
+			}
+		}
+		else = {
+			add_research_option = tech_mineral_purification_1
+			add_tech_progress = {
+				tech = tech_mineral_purification_1
+				progress = 0.25
+			}
 			}	
 		}
 		custom_tooltip = portal_closed_tooltip
+		hidden_effect = { set_planet_flag = dportal_closed }
 	}
 }
 

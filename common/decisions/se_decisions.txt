@@ -65,6 +65,24 @@ se_decision_end_total_emigration = {
     effect = {
         remove_modifier = "se_total_emmigration_with_maintenance"
     }
+
+	ai_weight = {
+		weight = 0
+		#SE: Keep the below commented out until the full set of population controls and
+        #    emmigration push get resolved
+		#weight = 5
+		#modifier = { # don't enable if you have free housing and no city districts left to build
+		#	factor = 0
+		#	OR = {
+		#		free_housing > 0
+		#		num_free_districts = {
+		#			type = any
+		#			value > 0
+		#		}
+		#		has_building_construction = yes #Added since they're probably building housing
+		#	}
+		#}
+	}
 }
 
 # Enable Population Controls Machine

@@ -93,6 +93,14 @@ tech_experimental_subspace_navigation = {
 			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
+			factor = @federation_perk_factor
+			has_federation = yes
+			federation = {
+				has_federation_perk = rare_tech_boost
+				any_member = { has_technology = tech_experimental_subspace_navigation }
+			}
+		}
+		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = physics
@@ -126,10 +134,10 @@ tech_neuroregeneration = {
 	is_rare = yes
 	weight = 0
 
-	#SE: Removed leader skill level and doubled experience gain
-	#    in order to better consolidate leader skill cap.
+	#SE: Leaders Enhanced: Removed leader level cap and increased
+	#    experience gain to compensate
 	modifier = {
-		species_leader_exp_gain = 0.5
+		species_leader_exp_gain = 0.50
 	}
 
 	weight_modifier = {
